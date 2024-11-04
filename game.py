@@ -7,11 +7,11 @@ size = 1000, 700
 screen = pygame.display.set_mode(size)
 
 #nombre de ventana
-pygame.display.set_caption("juego + épico")
+pygame.display.set_caption("juego de prueba")
 
+#comentario ramdon
 
 #crear variables
-
 class jugador:
     imagen = pygame.image.load("image.png")
     imagenrect = imagen.get_rect()
