@@ -1,33 +1,35 @@
 import pygame
 import os
+import imagenes
+
 pygame.init()
-size = 1000, 700
+width = 1000
+height = 700
 
 #tamaño d ventana
-screen = pygame.display.set_mode(size)
+screen = pygame.display.set_mode((width, height))
 
 #nombre de ventana
 pygame.display.set_caption("juego de prueba")
 
-#comentario ramdon
 
+#transparencia de imagen
+black = 0, 0, 0
+        
 #crear variables
 class jugador:
-    imagen = pygame.image.load("image.png")
-    imagenrect = imagen.get_rect()
+    imagen = pygame.image.load("jugador.png").convert_alpha()
+    imagenespepe = imagenes.spritesheet(imagen)    
+    #cambio de imagen
+    frame_0 = imagenespepe.get_image( 0, 48, 48, 3, black)
+    frame_1 = imagenespepe.get_image( 1, 48, 48, 3, black)
+    
+    #frame_0 usado como molde xq tienen el mismo tamaño
+    imagenrect = frame_0.get_rect()
     speed = [1, 1]
     def move_forward():
         imagenrect = imagenrect.move(speed)
 
-'''
-def movement(imagenrect):
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_UP]:
-        imagenrect=imagenrect.move(0,-1)
-    if keys[pygame.K_DOWN]:
-        imagenrect=imagenrect.move(0,1)
-'''
-        
 pepe = jugador()
 pepe.imagenrect.move_ip(300,100)
 #color pantalla
@@ -56,6 +58,6 @@ while run:
 
 
     screen.fill(color)
-    screen.blit(pepe.imagen, pepe.imagenrect)
+    screen.blit(pepe.frame_1, pepe.imagenrect)
     pygame.display.flip()
 pygame.QUIT
