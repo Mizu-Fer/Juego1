@@ -23,6 +23,7 @@ frame = 0
 color = 70, 170, 200
 #empezar bucle
 run = True
+
 while run:
     #ponemos los eventos q ocurren
     for event in pygame.event.get():
@@ -36,26 +37,21 @@ while run:
     keys = pygame.key.get_pressed() 
     # 40 es la cantidad de pixeles que hay entre el sprite y los bordes de colición
     if keys[pygame.K_UP] and pepe.imagenrect.top > -40:
-        #pepe.imagenrect = pepe.imagenrect.move(0,-1)
         pepe.movimiento_y = -1
         pepe.cambiar_direccion(1)
         pepe.caminar = True
 
     if keys[pygame.K_DOWN] and pepe.imagenrect.bottom < height + 40:
-        #pepe.imagenrect = pepe.imagenrect.move(0,1)
         pepe.movimiento_y = 1
         pepe.cambiar_direccion(0)
         pepe.caminar = True
-
-         
+      
     if keys[pygame.K_RIGHT] and pepe.imagenrect.right < width + 40:
-        #pepe.imagenrect = pepe.imagenrect.move(1,0)
         pepe.movimiento_x = 1
         pepe.cambiar_direccion(3)
         pepe.caminar = True
         
     if keys[pygame.K_LEFT] and pepe.imagenrect.left > -40:
-        #pepe.imagenrect = pepe.imagenrect.move(-1,0)
         pepe.movimiento_x = -1
         pepe.cambiar_direccion(2)
         pepe.caminar = True
@@ -67,8 +63,7 @@ while run:
     else:
         animation_coldown = 300
      
- 
-    
+         
     if pepe.movimiento_x != 0 or pepe.movimiento_y != 0:
     #actualizar movmiento
         pepe.imagenrect = pepe.imagenrect.move(pepe.movimiento_x, pepe.movimiento_y)
@@ -90,4 +85,5 @@ while run:
     else:
         screen.blit(pepe.animation_list_idle[frame], pepe.imagenrect)
     pygame.display.flip()
+    
 pygame.QUIT
