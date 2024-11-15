@@ -24,8 +24,8 @@ frame = 0
 color = 70, 170, 200
 
 #menu inicio
-img_start = pygame.image.load("boton_START.PNG").convert_alpha()
-img_exit = pygame.image.load("boton_EXIT.PNG").convert_alpha()
+img_start = pygame.image.load("boton_START.png").convert_alpha()
+img_exit = pygame.image.load("boton_EXIT.png").convert_alpha()
 
  
 #crear instancias
